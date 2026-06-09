@@ -4,7 +4,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.io.FileHandler;
 import orghrm.BaseClass;
-import orghrm.EmpListPage;
 
 import java.io.File;
 import java.io.IOException;

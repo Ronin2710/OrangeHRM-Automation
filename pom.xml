@@ -44,8 +44,12 @@
       <artifactId>extentreports</artifactId>
       <version>5.0.9</version>
     </dependency>
-
-
+      <dependency>
+          <groupId>org.testng</groupId>
+          <artifactId>testng</artifactId>
+          <version>7.11.0</version>
+          <scope>compile</scope>
+      </dependency>
 
 
   </dependencies>

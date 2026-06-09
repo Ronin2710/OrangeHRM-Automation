@@ -23,43 +23,6 @@ public class LoginPage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(35));
     }
-
-     /*   public void enterUserName(String userName)
-        {
-        WebElement User =driver.findElement(usernameField);
-        User.sendKeys(userName);
-        System.out.println("Username entered successfully");
-        }
-
-        public void enterPassword(String password)
-        {
-        WebElement Password = driver.findElement(passwordField);
-        Password.sendKeys(password);
-        System.out.println("Password entered successfully");
-        }
-
-        public void clickLogin()
-        {
-        WebElement ClickButton=driver.findElement(loginButton);
-        ClickButton.click();
-        System.out.println("Login successfully");
-        }
-
-        public void GetUserNameDetails()
-        {
-        WebElement UserDetails=driver.findElement(UserName);
-        UserDetails.click();
-        System.out.println(UserDetails.getText());
-        }
-
-        public void Logout()
-        {
-        WebElement logout=driver.findElement(logoutButton);
-        logout.click();
-        System.out.println("Logout successfully");
-        }
-
-*/
     public void login(String username, String password)
     {
         WebElement User=driver.findElement(usernameField);
