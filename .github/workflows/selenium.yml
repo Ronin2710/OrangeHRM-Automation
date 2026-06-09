@@ -28,7 +28,7 @@ jobs:
         run: mvn -version
 
       - name: Run TestNG Suite
-        run: mvn test -DsuiteXmlFile=testng.xml
+        run: mvn test
 
       - name: Upload Test Reports
         if: always()
