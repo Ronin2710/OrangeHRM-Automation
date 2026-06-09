@@ -16,7 +16,7 @@ public class HomePage{
 
     private final By DashboardEle = By.xpath("//h6[text()='Dashboard']");
 
-    // Constructor receives the BaseClass instance to access the shared driver
+    // Constructor receives the orghrm.EmpListPage.BaseClass instance to access the shared driver
     public HomePage(WebDriver driver) {
         if (driver == null) {
             throw new IllegalArgumentException("WebDriver must not be null. Initialize driver before creating HomePage.");

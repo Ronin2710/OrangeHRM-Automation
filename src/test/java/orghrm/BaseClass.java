@@ -15,6 +15,7 @@ public class BaseClass {
         return driver;
     }
 
+
     @BeforeMethod
     // Launch Browser & app
     public void setUp() {

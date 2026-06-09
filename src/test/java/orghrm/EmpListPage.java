@@ -1,8 +1,14 @@
 package orghrm;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import java.time.Duration;
 
 public class EmpListPage {
    private static WebDriver driver;
@@ -32,8 +38,14 @@ public class EmpListPage {
 
     public boolean isEmpDisplayed(String usernameField) {
 
-        By employeeLocator = By.xpath("//div[contains(text(),'" + usernameField + "')]]");
-        return driver.findElement(employeeLocator).isDisplayed();
+        By employeeLocator = By.xpath("//div[contains(text(),'" + usernameField + "')]");
 
+        int count = driver.findElements(employeeLocator).size();
+
+        System.out.println("Matching Elements Found: " + count);
+
+        return count > 0;
     }
+
+
 }
