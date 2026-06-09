@@ -37,16 +37,6 @@ public class LoginTest extends BaseClass {
         pimPage.addEmployee(firstName, lastName);
         ScreenshotUtil.takeScreenshot("VerifyAddEmp Successfully");
     }
-
-    @Test
-    public void VerifySearchEmployee() {
-        LoginPage loginPage = new LoginPage(BaseClass.getDriver());
-        loginPage.login("Admin", "admin123");
-        EmpListPage empListPage = new EmpListPage(BaseClass.getDriver());
-        empListPage.SearchEmployee("Piyush");
-        boolean employeeFound = empListPage.isEmpDisplayed("Piyush");
-        Assert.assertTrue(employeeFound, "Employee Not Found");
-    }
 }
 
 

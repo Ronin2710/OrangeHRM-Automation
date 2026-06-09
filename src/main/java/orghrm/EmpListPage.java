@@ -36,16 +36,5 @@ public class EmpListPage {
 
     }
 
-    public boolean isEmpDisplayed(String usernameField) {
-
-        By employeeLocator = By.xpath("//div[contains(text(),'" + usernameField + "')]");
-
-        int count = driver.findElements(employeeLocator).size();
-
-        System.out.println("Matching Elements Found: " + count);
-
-        return count > 0;
-    }
-
 
 }
