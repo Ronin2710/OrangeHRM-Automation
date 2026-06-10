@@ -15,6 +15,8 @@ public class LoginPage {
     private final By loginButton = By.xpath("//button[@type='submit']");
     private final By UserName = By.xpath("//p[@class='oxd-userdropdown-name']");
     private final By logoutButton = By.xpath("//a[text()='Logout']");
+    private final By errorMessage = By.xpath("//p[normalize-space()='Invalid credentials']");
+
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -35,7 +37,7 @@ public class LoginPage {
 
         WebElement ClickButton=driver.findElement(loginButton);
         ClickButton.click();
-        System.out.println("Login successfully");
+
     }
 
     public String getLoggedinUser()
@@ -43,6 +45,10 @@ public class LoginPage {
         WebElement getLoggedinUser=driver.findElement(UserName);
         getLoggedinUser.click();
         return getLoggedinUser.getText();
+    }
+
+    public String getErrorMessage(){
+            return driver.findElement(errorMessage).getText();
     }
 
    /* public void Logout()

@@ -3,13 +3,18 @@ package orghrm;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-    public class PimpPage {
+import java.time.Duration;
+
+public class PimpPage {
     WebDriver driver;
     WebDriverWait wait;
     public PimpPage(WebDriver driver) {
+
         this.driver = driver;
+        this.wait=new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
     private final By pimMenu = By.xpath("//span[text()='PIM']");
@@ -32,7 +37,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
         WebElement LName=driver.findElement(this.lastName);
         LName.sendKeys(lastName);
 
-        WebElement SubmitButton=driver.findElement(saveButton);
+        WebElement SubmitButton=wait.until(ExpectedConditions.elementToBeClickable(saveButton));
         SubmitButton.click();
 
         System.out.println("Employee added successfully: " + firstName + " " + lastName);

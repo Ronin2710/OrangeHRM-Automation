@@ -17,15 +17,18 @@ public class LoginTest extends BaseClass {
     public void verifylogin(String UserName, String Password) {
         LoginPage loginPage = new LoginPage(BaseClass.getDriver());
         loginPage.login(UserName, Password);
+        System.out.println("Login Success");
     }
+
 
     @Test
     public void verifyLoggedInUser() throws IOException {
         LoginPage loginPage = new LoginPage(BaseClass.getDriver());
         loginPage.login("Admin", "admin123");
         String loggedInUser = loginPage.getLoggedinUser();
-        System.out.println("User Name Is: " + loggedInUser);
         Assert.assertFalse(loggedInUser.isEmpty());
+        System.out.println("User Name Is: " + loggedInUser);
+
         ScreenshotUtil.takeScreenshot("LoginTest Success");
     }
 
@@ -36,6 +39,24 @@ public class LoginTest extends BaseClass {
         PimpPage pimPage = new PimpPage(BaseClass.getDriver());
         pimPage.addEmployee(firstName, lastName);
         ScreenshotUtil.takeScreenshot("VerifyAddEmp Successfully");
+    }
+
+    @Test
+    public void VerifySearchEmployee() {
+        LoginPage loginPage = new LoginPage(BaseClass.getDriver());
+        loginPage.login("Admin", "admin123");
+        EmpListPage empListPage = new EmpListPage(BaseClass.getDriver());
+        empListPage.SearchEmployee("Piyush");
+
+    }
+
+    @Test
+    public void VerifyInvalidLogin(){
+        LoginPage loginPage = new LoginPage(BaseClass.getDriver());
+        loginPage.login("Admin", "WrongPassword");
+        String errorMessage = loginPage.getErrorMessage();
+        System.out.println("Error Message Is: " + errorMessage);
+        Assert.assertEquals(errorMessage, "Invalid credentials", "error Message mismatch");
     }
 }
 
